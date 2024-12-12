@@ -37,7 +37,7 @@ public class DataController {
         return deleteUserService.deleteUser(_id);
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<?> loginUser (
             @RequestBody LoginRequest request) {
         return ResponseEntity.ok(loginService.login(request));
