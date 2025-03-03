@@ -20,7 +20,7 @@ services:
   demo:
     container_name: demo
     build:
-      context: ./demo
+      context: ./
       dockerfile: Dockerfile
     env_file:
       - ./src/main/resources/demo.env
