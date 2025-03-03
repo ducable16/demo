@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  mongodb:
+     image: mongo:8.0
+     container_name: mongodb
+     ports:
+       - "27017:27017"
+     environment:
+       # MONGO_INITDB_ROOT_USERNAME: root
+       # MONGO_INITDB_ROOT_PASSWORD: rootpassword
+       MONGO_INITDB_DATABASE: database
+     volumes:
+       - ./mongo-data:/data/db
+     command: ["mongod", "--bind_ip", "0.0.0.0"]
+     networks:
+       - app-net
+
+
+  demo:
+    container_name: demo
+    build:
+      context: ./demo
+      dockerfile: Dockerfile
+    env_file:
+      - ./main/resources/demo.env
+    environment:
+        # - LOG_PATH=/var/logs/users-service
+        # - LOG_LEVEL=INFO
+        - SERVICE_NAME=demo
+        - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017/database
+    ports:
+        - "8080:8080"
+    networks:
+        - app-net
+    
+networks:
+    app-net:

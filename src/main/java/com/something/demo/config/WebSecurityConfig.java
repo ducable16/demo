@@ -32,11 +32,11 @@ public class WebSecurityConfig {
         http
                 .csrf((AbstractHttpConfigurer::disable))
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/api/login").permitAll()
+//                        .requestMatchers("/api/login").permitAll()
 //                        .requestMatchers("/api/register").permitAll()
 //                        .requestMatchers("/").hasAnyRole("USER", "ADMIN")
 //                        .requestMatchers("/systems/**").hasRole("ADMIN")
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 );
         return http.build();
     }

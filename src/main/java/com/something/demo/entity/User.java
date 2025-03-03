@@ -1,9 +1,5 @@
 package com.something.demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -22,7 +18,6 @@ public class User {
     private int age;
     private String username;
     private String password;
-    @Enumerated(EnumType.STRING)
     private Role role;
 
 
