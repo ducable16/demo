@@ -23,7 +23,7 @@ services:
       context: ./demo
       dockerfile: Dockerfile
     env_file:
-      - ./main/resources/demo.env
+      - ./src/main/resources/demo.env
     environment:
         # - LOG_PATH=/var/logs/users-service
         # - LOG_LEVEL=INFO
